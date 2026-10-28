@@ -1,0 +1,36 @@
+
+aws_region      = "ap-south-1"
+project_name    = "cloudwithchandu-shop"
+environment     = "learning"
+
+domain_name     = "cloudwithchandu.site"
+app_subdomain   = "shop"
+create_hosted_zone = true
+
+vpc_cidr = "10.20.0.0/16"
+
+public_subnet_cidrs = [
+  "10.20.1.0/24",
+  "10.20.2.0/24",
+  "10.20.3.0/24"
+]
+
+private_subnet_cidrs = [
+  "10.20.11.0/24",
+  "10.20.12.0/24",
+  "10.20.13.0/24"
+]
+
+instance_type = "t3.medium"
+key_name      = "mumbai-key"
+instance_count = 3
+app_port       = 8080
+
+nat_strategy = "single"
+
+# Keep SSH disabled. Use Session Manager where possible.
+ssh_enabled      = false
+ssh_allowed_cidr = ""
+
+# Public storefront. Restrict this if the application should be private.
+allowed_client_cidr = "0.0.0.0/0"
